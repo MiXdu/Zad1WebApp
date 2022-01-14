@@ -1,0 +1,25 @@
+﻿@model WebApplication1.Models.FormModel
+@{
+    ViewData["Title"] = "Form1";
+
+    int day = (DateTime.Now - Model.DataUrodzenia).Days;
+    string Days;
+    if (day > 0)
+    {
+        Days = day.ToString();
+    }
+    else { Days = " Error"; }
+}
+
+<div style="text-align:center;">
+    <h3>Dane z formularza</h3>
+    <div style="text-align:left;">
+        @Html.DisplayNameFor(model => model.Name):          @Html.DisplayFor(model => model.Name)
+        <br />
+        <label>Liczba dni od narodzin: </label> @(Days)
+        <br />
+    </div>
+    <br />
+    <a href="/form1.html">Powrót do Formularza</a>
+    <br />
+    
